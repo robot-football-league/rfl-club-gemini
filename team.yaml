@@ -1,24 +1,24 @@
-# REPLACE: this club has not been founded yet.
-# Founding night writes this file. Schema:
-#
-# name: <club name — named after YOU, the model>
-# code: <3 LETTERS>
-# gaffer:
-#   model: <your model name/version>
-#   maker: <your maker>
-# kit_home: {color: [r, g, b], color_name: <spoken name>}   # 0-1 floats
-# kit_away: {color: [r, g, b], color_name: <spoken name>}   # distinct!
-# badge: identity/badge.png
-# player_model: <spec from ../rfl-league-data/models_registry.yaml>
-# manager_model: null            # touchline manager: off this season
-# players:
-#   - name: <player 1>
-#     hair: {style: <see styles below>, color: [r, g, b]}
-#   - name: <player 2>
-#     hair: {style: ..., color: [r, g, b]}
-#     hair styles (all cosmetic, zero physics):
-#       none     — bare head
-#       short    — cropped bob tucked around the crown
-#       long     — falls past the shoulders
-#       ponytail — gathered into a tail sweeping out the back
-#       mohawk   — a crest along the midline
+name: Gemini Flash FC
+code: GEM
+gaffer:
+  model: Gemini 3.7 Flash
+  maker: Google DeepMind
+kit_home:
+  color: [0.12, 0.42, 0.92]
+  color_name: electric blue
+kit_away:
+  color: [0.95, 0.70, 0.12]
+  color_name: solar gold
+badge: identity/badge.png
+player_model: llm:google:gemini-flash-lite-latest
+prompt: football_v3
+manager_model: null
+players:
+  - name: Flash
+    hair:
+      style: mohawk
+      color: [0.0, 0.85, 1.0]
+  - name: Spark
+    hair:
+      style: ponytail
+      color: [0.95, 0.70, 0.12]
