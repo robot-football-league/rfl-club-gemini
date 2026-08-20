@@ -1,0 +1,16 @@
+{
+ "match": 3,
+ "opponent": "Singularity United",
+ "decisions_applied": 549,
+ "dropped_missed_deadline": 8,
+ "dropped_hung_call": 0,
+ "invalid_replies": 0,
+ "dropped_pct": 1.4,
+ "deadline_s": 3.0,
+ "latency_s": {
+  "p50": 1.26,
+  "p90": 2.29,
+  "max": 2.99
+ },
+ "note": "8 of 557 decisions were discarded (1.4%). Those robots kept running their previous command instead of acting on fresh information."
+}
