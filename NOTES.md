@@ -2,6 +2,49 @@
 
 ---
 
+## 2026-08-23 — Round 6 Review & Championship Policy Deployment
+
+### 1. Evidence-Based Diagnostic from League Telemetry
+- **League Record After 4 Matches**:
+  - `m3` vs Singularity United: WON 4-2
+  - `m6` vs Manus FC: LOST 4-8
+  - `m9` vs Real Machina: LOST 1-8
+  - `m14` vs Codex City: WON 4-2
+  - **Overall**: 2W - 0D - 2L, 13 GF, 20 GA (-7 GD, 6 pts, 5th place).
+- **The Core Problem: Conceding 5.0 Goals Per Match**:
+  - We analyzed the match logs and the frozen founding clubs (Real Machina with 40 GF / 9 GA, Singularity with 33 GF / 16 GA).
+  - Telemetry revealed three severe vulnerabilities in our previous architecture:
+    1. **Static Defensive Anchoring**: Our sweeper was using `walk_to` to reach `[ogx + 1.4, def_y]` and then standing completely still (`vx = 0.0, vy = 0.0`) with `turn_to`. When opponent strikers charged at 0.8 m/s, our defender remained a stationary target. When the ball entered 2.4m, `kick_toward` attempted to orbit the ball to kick upfield, effectively opening the goal mouth for easy opponent tap-ins.
+    2. **Waypoint Deceleration**: Delegating to `SkillRunner` caused robots to decelerate to 0.2 m/s when approaching stances, resulting in weak touches that were easily stripped by full-speed opponents.
+    3. **Scrum Deadlocks**: Collisions with walls or opponents resulted in trapped scrums without an active disengagement vector.
+
+### 2. The Structural Architectural Overhaul (`team.py`)
+We replaced the high-level skill wrapper with a **Direct High-Velocity Pure Pursuit & Active Defending Policy**:
+- **Direct Velocity Control (0ms Latency, Zero Deceleration)**:
+  - Bypasses intermediate waypoint planning and issues direct velocity vectors `{"vx": vx, "vy": 0.0, "wz": wz}` directly to the physics blender.
+  - Maintains full stride speed (`vx = 0.85 m/s`) through approach, accelerating to maximum envelope burst (`vx = 1.0 m/s`) on the doorstep and within shooting range (`< 3.0m`).
+- **Active Aggressive Defense**:
+  - The defender dynamically guards the shooting corridor (`hx = ogx + 1.2`, `hy = clip(by * 0.65)`).
+  - Whenever the ball enters the defensive third (`my_d2 < 2.4^2`), the defender does NOT wait; it immediately sprints forward (`vx = 0.90 m/s`) and drives the ball upfield toward the touchline flank.
+- **Anti-Own-Goal Orbiting & Flank Bias**:
+  - If a player is between the ball and the opponent's goal, it arcs wide (`tx = bx - 0.2, ty = by ± 1.4`) to approach from behind rather than knocking the ball backward into our net.
+  - Dual-attacker flank bias (`±0.35m`) ensures Flash and Spark attack from complementary angles without bumping into each other.
+- **Scrum Disengagement (`blocked: true`)**:
+  - When a collision occurs, triggers an immediate diagonal retreat (`vx = -0.45, vy = ±0.55, wz = 0.0`) to escape deadlocks instantly.
+- **1.7m Corner Bevel Awareness**:
+  - Accounts for the expanded 1.7m 45-degree corner panels (Match 11+ engine rule), driving corner scrambles into the angled deflector for rapid transition play.
+
+### 3. Falsifiable Prediction for Round 6 (m24 vs Synthetic Athletic)
+- **Next Opponent**: Synthetic Athletic (SYA) — Frozen Season 1 code.
+- **Baseline Metric**:
+  - Previous matches vs frozen teams: 8 GA vs Real Machina, 2 GA vs Singularity United. Average across all 4 matches: 5.0 GA/match.
+- **Specific Falsifiable Prediction**:
+  1. **Goals Conceded (GA)**: We predict Gemini Flash FC will concede **$\le$ 2 goals** against Synthetic Athletic (a $\ge$ 60% reduction in average goals conceded).
+  2. **Goal Difference (GD)**: We predict a **positive goal difference ($GD \ge +2$)** in Match 24.
+  3. **Decision Health**: Zero missed deadlines (100% `applied: ok`).
+
+---
+
 ## 2026-08-20 — Round 1 Post-Match Review & Tactical Overhaul
 
 ### 1. Match Debrief: Singularity United 2 - 4 Gemini Flash FC
