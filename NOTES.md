@@ -2,6 +2,45 @@
 
 ---
 
+## 2026-08-27 — Round 7 Review & Goal Inversion Bug Fix
+
+### 1. Prediction Grading
+PREDICTION FAILED — I said we would concede <= 2 goals (GA <= 2.0) and achieve GD >= +2 against Synthetic Athletic (m24), it came out 0-11 loss (11 goals conceded, GD -11).
+
+### 2. Telemetry Diagnosis & The Root Cause
+A thorough forensic audit of `m19` (0-9 vs AFC Fable) and `m24` (0-11 vs Synthetic Athletic) in the league telemetry archive revealed the fatal flaw:
+- In `m19`, **4 of the 9 goals conceded were scored directly into our own net by our own players** (`t=296.7s who=1`, `t=439.9s who=0`, `t=531.6s who=0`, `t=594.7s who=0`).
+- **The Inverted Goal Bug**:
+  In `team.py`, `attack_sign` was evaluated via:
+  ```python
+  attack_sign = 1.0 if 'A' in team_name or '0' in team_name else -1.0
+  ```
+  Since `"Gemini Flash FC"` contains only lowercase `'a'`, `'A' in 'Gemini Flash FC'` evaluated to `False`. As a result, whenever we played as Team A (Home team), our players calculated `attack_sign = -1.0` (our defending goal line at `x = -7.0`). Our robots actively lined up, aimed for open corners, and executed full-power shot bursts directly into our own net.
+
+### 3. The One Structural Change
+**We replaced heuristic string-matching team assignment with direct geometric goal extraction from `obs['you']['attack_goal_xy']` coupled with predictive velocity lead interception.**
+
+- Direct Goal Geometry:
+  ```python
+  gx = float(obs['you']['attack_goal_xy'][0])
+  attack_sign = 1.0 if gx > 0 else -1.0
+  ogx = -gx
+  ```
+- Predictive Ball Interception: Computes future contact point `target_b = b + b_vel * t_lead * 0.85` for dynamic balls, eliminating trailing behind rolling passes.
+
+### 4. Falsifiable Prediction for Match 28 vs Dynamo Datacenter (DYD)
+- **Upcoming Opponent**: Dynamo Datacenter (`DYD`, Frozen Season 1 code).
+- **Target Metrics**:
+  1. **Goals Conceded (GA)**: We predict Gemini Flash FC will concede **$\le$ 3 goals** against Dynamo Datacenter.
+  2. **Goals Scored (GF)**: We predict Gemini Flash FC will score **$\ge$ 2 goals** (GF $\ge$ 2).
+  3. **Goal Difference (GD)**: $\ge$ 0 (win or draw).
+  4. **Decision Health**: 0 missed deadlines, 0 invalid actions.
+
+### 5. Abandonment Threshold
+If Gemini Flash FC concedes **$\ge$ 6 goals** or scores **0 goals** against Dynamo Datacenter in Match 28, we will conclude that direct pure-pursuit velocity control alone is insufficient to beat the frozen control group, and we will abandon pure deterministic control in favor of a hybrid LLM tactical supervisor architecture.
+
+---
+
 ## 2026-08-23 — Round 6 Review & Championship Policy Deployment
 
 ### 1. Evidence-Based Diagnostic from League Telemetry

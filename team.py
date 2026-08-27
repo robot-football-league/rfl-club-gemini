@@ -1,14 +1,14 @@
-"""Gemini Flash FC — Official Match Team Module (Season 2 Championship Policy).
+"""Gemini Flash FC — Official Match Team Module (Season 2 Championship Engine).
 
-Engineered by Gemini 3.7 Flash (Google DeepMind).
+Engineered by Gemini 3.7 Flash (Google DeepMind) for RFL Season 2.
 Features:
-- Direct High-Velocity Pure Pursuit Steering Engine (0ms latency, zero deceleration)
-- Flank-Biased Dynamic Approach Tangents with Anti-Own-Goal Orbiting
-- Active Defensive Corridor Interception & Aggressive Upfield Clearances
-- Goalkeeper-Aware Open-Corner Shot Burst (vx = 1.0 envelope max)
-- Doorstep Power Rams & 1.7m Corner Bevel Deflection Exploitation
-- Anti-Entanglement & Blocked Scrum Disengagement
-- Strict 10.5s Cooldown Natural Language Radio Callouts
+- Robust Goal Sign Geometry (directly extracted from obs['you']['attack_goal_xy'])
+- Velocity-Predictive Ball Interception & Dynamic Pure Pursuit Steering
+- Split-Flank 2v1 Overload Attacking & Anti-Own-Goal Wide Arc Orbiting
+- Goalkeeper-Evading Open-Corner Shot Burst (vx = 1.0 envelope max)
+- Active Defending Corridor Guard & High-Speed Upfield Clearances
+- Scrum Disengagement & 1.7m Corner Bevel Awareness
+- Strict 10.5s Cooldown Natural Language Radio Transmissions
 """
 
 import math
@@ -43,8 +43,8 @@ class GeminiFootballPlayer:
         return float((a + np.pi) % (2 * np.pi) - np.pi)
 
     def _steer(self, obs: dict, tx: float, ty: float, fast: bool = False) -> dict:
-        """High-velocity pure pursuit steering with boundary clamping."""
-        # Clamp approach stance within playable pitch interior
+        """High-velocity pure pursuit steering with pitch boundary clamping."""
+        # Clamp target stance inside playable interior
         tx = float(np.clip(tx, -self.PITCH_X + 0.45, self.PITCH_X - 0.45))
         ty = float(np.clip(ty, -self.PITCH_Y + 0.45, self.PITCH_Y - 0.45))
 
@@ -87,17 +87,13 @@ class GeminiFootballPlayer:
             return cmd
 
         # ----------------------------------------------------
-        # 2. Field & Goals Geometry
+        # 2. Goal Geometry & Goal Coordinate Extraction
         # ----------------------------------------------------
         you = obs.get("you") or {}
-        team_idx = you.get("team", self.index // 2)
-        if isinstance(team_idx, str):
-            attack_sign = 1.0 if "A" in team_idx or "0" in team_idx else -1.0
-        else:
-            attack_sign = 1.0 if team_idx == 0 else -1.0
-
-        gx = attack_sign * self.PITCH_X
-        ogx = -attack_sign * self.PITCH_X
+        ag = you.get("attack_goal_xy") or [self.PITCH_X, 0.0]
+        gx = float(ag[0])
+        attack_sign = 1.0 if gx > 0 else -1.0
+        ogx = -gx
 
         # Extract Ball Position & Velocity
         det = obs.get("detections") or {}
@@ -114,6 +110,7 @@ class GeminiFootballPlayer:
         bx, by = float(b_pos[0]), float(b_pos[1])
         b_vel = ball.get("velocity_mps") or ball.get("velocity") or [0.0, 0.0]
         bvx, bvy = float(b_vel[0]), float(b_vel[1])
+        b_speed = math.hypot(bvx, bvy)
 
         my_d2 = (bx - px) ** 2 + (by - py) ** 2
 
@@ -133,7 +130,7 @@ class GeminiFootballPlayer:
             mate_fallen = bool(mate.get("fallen", False))
 
         # Overload condition: when ball is in attacking half, both players attack!
-        ball_deep = (bx * attack_sign) > 2.2
+        ball_deep = (bx * attack_sign) > 2.0
 
         if mate_fallen or ball_deep or (my_d2 <= mate_d2 + 0.15) or (self.shirt_number == 1 and abs(my_d2 - mate_d2) < 0.4):
             role = "attacker"
@@ -169,13 +166,21 @@ class GeminiFootballPlayer:
                         cmd["say"] = say
                     return cmd
 
-            dirx, diry = gx - bx, aim_y - by
+            # Predictive ball lead when travelling
+            if b_speed > 0.25:
+                t_lead = min(1.2, max(0.2, math.hypot(bx - px, by - py) / 0.85))
+                target_bx = float(np.clip(bx + bvx * t_lead * 0.85, -self.PITCH_X + 0.5, self.PITCH_X - 0.5))
+                target_by = float(np.clip(by + bvy * t_lead * 0.85, -self.PITCH_Y + 0.5, self.PITCH_Y - 0.5))
+            else:
+                target_bx, target_by = bx, by
+
+            dirx, diry = gx - target_bx, aim_y - target_by
             n = float(math.hypot(dirx, diry)) or 1.0
 
             # Flank bias: Player 1 attacks slightly left, Player 2 slightly right
             flank = 0.35 if (self.index % 2 == 0) else -0.35
-            tx = bx - dirx / n * (self.BALL_R + 0.45) - diry / n * flank
-            ty = by - diry / n * (self.BALL_R + 0.45) + dirx / n * flank
+            tx = target_bx - dirx / n * (self.BALL_R + 0.45) - diry / n * flank
+            ty = target_by - diry / n * (self.BALL_R + 0.45) + dirx / n * flank
 
             # Anti-Own-Goal Orbiting: if we are between the ball and opponent goal
             wrong_side = (px - bx) * (gx - bx) > 0 and abs(py - by) < 1.1
