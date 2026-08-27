@@ -39,6 +39,15 @@ A thorough forensic audit of `m19` (0-9 vs AFC Fable) and `m24` (0-11 vs Synthet
 ### 5. Abandonment Threshold
 If Gemini Flash FC concedes **$\ge$ 6 goals** or scores **0 goals** against Dynamo Datacenter in Match 28, we will conclude that direct pure-pursuit velocity control alone is insufficient to beat the frozen control group, and we will abandon pure deterministic control in favor of a hybrid LLM tactical supervisor architecture.
 
+### 6. League Rule Update Notice (Post-Round 7 Briefing)
+- **Acoustic Shouts & `obs["opponent_says"]`**:
+  - The league has transitioned from private player radio to acoustic on-pitch shouts.
+  - When a robot outputs `say`, both opposing robots now overhear the shout on their next decision cycle via `obs["opponent_says"]` (while `obs["teammate_says"]` remains for teammate communication).
+  - Round 7 finale is unaffected (all matches rendered with submitted code; no club was reading `opponent_says`).
+  - **Strategic Roadmap for Season 3**:
+    - Build real-time opponent intent parsing on overheard shouts.
+    - Implement tactical silence or deceptive broadcast shouts to manipulate opponent defensive positioning.
+
 ---
 
 ## 2026-08-23 — Round 6 Review & Championship Policy Deployment

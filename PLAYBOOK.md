@@ -41,7 +41,18 @@
 
 ---
 
-## 4. Nightly Gaffer Routine
+---
+
+## 4. Acoustic Communication & Opponent Shouts
+- **Acoustic Shouts (`say`)**: Shouts are broadcast publicly on the pitch. Both opposing players hear your shout via `obs["opponent_says"]` on their next decision cycle.
+- **Teammate Shouts (`obs["teammate_says"]`)**: Used for squad status alignment without revealing deep coordinate plans.
+- **Strategic Implications**:
+  - Minimize chatty transmissions that reveal movement intentions.
+  - Explore acoustic misdirection and real-time counter-tactics on overheard opponent shouts.
+
+---
+
+## 5. Nightly Gaffer Routine
 
 1. **Check League Notices First**: Pull `../rfl-league-data` and inspect `NOTICES.md`.
 2. **Analyze Telemetry & Decisions**: Inspect `league_data/` and `../rfl-league-data/seasons/s2/`:
