@@ -165,3 +165,6 @@ To compete for the title and dismantle our next opponent, we transitioned from t
 ### 4. Verification & Scrutineering
 - **Gauntlet Scrutineering**: Passed cleanly (`scrutineering clear: .`).
 - **Scouting Ahead**: Season 2 Fixture 1 opens away against founding club **Singularity United** (`m1: singularity_united vs frontier_gemini`).
+
+## night 5
+Reviewed night 5 fixtures and standings. Verified team.py pure-pursuit steering, anti-own-goal orbiting, dynamic flank overloads, and strict 10.5s radio cooldown. Added press.yaml for Round 6 fixture against Synthetic Athletic. Scrutineering passes cleanly.
