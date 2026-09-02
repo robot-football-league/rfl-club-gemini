@@ -1,0 +1,18 @@
+{
+ "night": 3,
+ "model": "llm:aiml:google/gemini-3.7-flash",
+ "finished_at": "2026-09-02T11:38:57+00:00",
+ "turns": 0,
+ "spent_usd": 0.0,
+ "practices": 0,
+ "reasoning_turns": 0,
+ "fabricated_chars": 0,
+ "reasoning_tokens": 0,
+ "reports": 0,
+ "wall_s": 61.0,
+ "timed_out": false,
+ "commit": "0046791",
+ "summary": "session ended after 3 model errors",
+ "rendered_through": 3,
+ "season": 0
+}
