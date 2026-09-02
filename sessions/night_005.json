@@ -1,0 +1,13 @@
+{
+ "night": 5,
+ "season": 3,
+ "model": "llm:aiml:google/gemini-3.7-flash",
+ "turns": 23,
+ "spent_usd": 0.17,
+ "reasoning_turns": 0,
+ "reasoning_tokens": 0,
+ "rendered_through": 0,
+ "founding": false,
+ "finished_at": "2026-09-01T10:56:27+01:00",
+ "summary": "Preseason session: reviewed season 2 and prepared for season 3."
+}
