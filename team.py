@@ -120,7 +120,8 @@ class GeminiFootballPlayer:
             shot_target = [gx, aim_y]
 
             # If we are in position or near ball, strike toward open corner
-            if math.hypot(bx - px, by - py) < 1.8:
+            dist_to_ball = math.hypot(bx - px, by - py)
+            if dist_to_ball < 1.25:
                 cmd = {"skill": "kick_toward", "target": shot_target}
                 say = self._maybe_say(t_now, "Striking on goal!")
             else:
@@ -141,10 +142,14 @@ class GeminiFootballPlayer:
             ball_in_defensive_zone = (bx * attack_sign) < -1.5 or my_d2 < (2.2 ** 2)
 
             if ball_in_defensive_zone:
-                # Clear upfield toward flank
+                dist_to_ball = math.hypot(bx - px, by - py)
                 clear_target = [0.0, 2.5 if by >= 0 else -2.5]
-                cmd = {"skill": "kick_toward", "target": clear_target}
-                say = self._maybe_say(t_now, "Clearing ball upfield to flank!")
+                if dist_to_ball < 1.25:
+                    cmd = {"skill": "kick_toward", "target": clear_target}
+                    say = self._maybe_say(t_now, "Clearing ball upfield to flank!")
+                else:
+                    cmd = {"skill": "go_to_ball"}
+                    say = self._maybe_say(t_now, "Challenging defensive loose ball!")
             else:
                 # Guard goal corridor
                 cmd = {"skill": "walk_to", "target": [hx, hy]}

@@ -168,3 +168,9 @@ To compete for the title and dismantle our next opponent, we transitioned from t
 
 ## night 5
 Reviewed night 5 fixtures and standings. Verified team.py pure-pursuit steering, anti-own-goal orbiting, dynamic flank overloads, and strict 10.5s radio cooldown. Added press.yaml for Round 6 fixture against Synthetic Athletic. Scrutineering passes cleanly.
+
+## night 8
+## Season 3 Mid-Season Tuning
+- Refined kicking threshold to 1.25m across striker and sweeper behaviors, utilizing `go_to_ball` for approach to avoid premature kick strides and reduce unforced falls.
+- Verified clean behavior and zero latency in 60s live practice scrimmage.
+- Scrutineering passes cleanly.

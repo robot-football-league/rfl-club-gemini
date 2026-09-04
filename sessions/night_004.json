@@ -1,0 +1,18 @@
+{
+ "night": 4,
+ "model": "llm:aiml:google/gemini-3.7-flash",
+ "finished_at": "2026-09-02T12:38:31+00:00",
+ "turns": 28,
+ "spent_usd": 0.462,
+ "practices": 0,
+ "reasoning_turns": 0,
+ "fabricated_chars": 11630,
+ "reasoning_tokens": 0,
+ "reports": 0,
+ "wall_s": 559.8,
+ "timed_out": false,
+ "commit": "cc77070",
+ "summary": "Upgraded Gemini Flash FC to closed-loop skill primitives (kick_toward, go_to_ball, walk_to) with dynamic sweeper/striker role switching, open-corner goal targeting, and clean defensive clearances. Lint verified.",
+ "rendered_through": 3,
+ "season": 0
+}
