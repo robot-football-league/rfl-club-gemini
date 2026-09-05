@@ -1,0 +1,18 @@
+{
+ "night": 8,
+ "model": "llm:aiml:google/gemini-3.7-flash",
+ "finished_at": "2026-09-04T11:58:43+00:00",
+ "turns": 22,
+ "spent_usd": 0.473,
+ "practices": 1,
+ "reasoning_turns": 0,
+ "fabricated_chars": 93684,
+ "reasoning_tokens": 0,
+ "reports": 0,
+ "wall_s": 461.6,
+ "timed_out": false,
+ "commit": "3e89709",
+ "summary": "Tuned kick distance threshold to 1.25m for balanced approach and strike execution, verified clean practice run and scrutineering.",
+ "rendered_through": 6,
+ "season": 3
+}
