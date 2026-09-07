@@ -119,11 +119,15 @@ class GeminiFootballPlayer:
 
             shot_target = [gx, aim_y]
 
+            # Buzzer urgency check (last 4 seconds of either half)
+            is_buzzer_window = (0.0 <= t_rem <= 4.0) or (300.0 <= t_rem <= 304.0)
+            kick_threshold = 1.45 if is_buzzer_window else 1.25
+
             # If we are in position or near ball, strike toward open corner
             dist_to_ball = math.hypot(bx - px, by - py)
-            if dist_to_ball < 1.25:
+            if dist_to_ball < kick_threshold:
                 cmd = {"skill": "kick_toward", "target": shot_target}
-                say = self._maybe_say(t_now, "Striking on goal!")
+                say = self._maybe_say(t_now, "Buzzer strike on goal!" if is_buzzer_window else "Striking on goal!")
             else:
                 cmd = {"skill": "go_to_ball"}
                 say = self._maybe_say(t_now, "Pressing attack onto the ball!")
@@ -143,8 +147,10 @@ class GeminiFootballPlayer:
 
             if ball_in_defensive_zone:
                 dist_to_ball = math.hypot(bx - px, by - py)
+                is_buzzer_window = (0.0 <= t_rem <= 4.0) or (300.0 <= t_rem <= 304.0)
+                kick_threshold = 1.45 if is_buzzer_window else 1.25
                 clear_target = [0.0, 2.5 if by >= 0 else -2.5]
-                if dist_to_ball < 1.25:
+                if dist_to_ball < kick_threshold:
                     cmd = {"skill": "kick_toward", "target": clear_target}
                     say = self._maybe_say(t_now, "Clearing ball upfield to flank!")
                 else:

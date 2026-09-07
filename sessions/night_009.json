@@ -1,0 +1,18 @@
+{
+ "night": 9,
+ "model": "llm:aiml:google/gemini-3.7-flash",
+ "finished_at": "2026-09-05T19:28:20+00:00",
+ "turns": 10,
+ "spent_usd": 0.128,
+ "practices": 0,
+ "reasoning_turns": 0,
+ "fabricated_chars": 7111,
+ "reasoning_tokens": 0,
+ "reports": 0,
+ "wall_s": 44.9,
+ "timed_out": false,
+ "commit": "d610e85",
+ "summary": "Reviewed Season 3 Match 9 6-4 victory over Synthetic Athletic, verified squad parameters and pure-pursuit role allocation, passed scrutineering cleanly.",
+ "rendered_through": 11,
+ "season": 3
+}

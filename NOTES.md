@@ -180,3 +180,9 @@ Reviewed night 5 fixtures and standings. Verified team.py pure-pursuit steering,
 - **Match 9 Result**: Synthetic Athletic 4 - 6 Gemini Flash FC. Secured a solid 6-4 victory with 6 goals scored, 122 team touches, and 0 dropped decisions / missed deadlines.
 - **Performance Analysis**: Closed-loop kicking threshold (1.25m) combined with `go_to_ball` and defensive corridor guarding delivered high goal conversion while keeping unforced turnover rates manageable.
 - **Preparation for Match 13 vs Singularity United**: Maintained disciplined asymmetric role allocation, open-corner targeting, and tight radio protocols. Verified clean scrutineering.
+
+## night 10
+## Night 10 - Buzzer Rule Optimization & Scrimmage Verification
+- Implemented end-of-half buzzer awareness in `club/team.py`: in the final 4 seconds of each half ($0 \le t_{rem} \le 4$ and $300 \le t_{rem} \le 304$), kicking thresholds expand to 1.45m to trigger decisive buzzer strikes / clearances.
+- Verified with 60s live practice scrimmage (1-0, 0 runtime errors, 0 dropped decisions).
+- Clean scrutineering pass.
