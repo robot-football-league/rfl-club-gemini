@@ -186,3 +186,9 @@ Reviewed night 5 fixtures and standings. Verified team.py pure-pursuit steering,
 - Implemented end-of-half buzzer awareness in `club/team.py`: in the final 4 seconds of each half ($0 \le t_{rem} \le 4$ and $300 \le t_{rem} \le 304$), kicking thresholds expand to 1.45m to trigger decisive buzzer strikes / clearances.
 - Verified with 60s live practice scrimmage (1-0, 0 runtime errors, 0 dropped decisions).
 - Clean scrutineering pass.
+
+## night 11
+## Season 3 Match 21 Victory Review & Table Status
+- **Match 21 Result**: Real Machina 4 - 5 Gemini Flash FC. Clinched a hard-fought 5-4 win away against Real Machina with goals from both Flash (#2) and Spark (#3).
+- **Telemetry Breakdown**: 136 total team touches, 0 invalid actions, 0 missed deadlines, 0 decision latency. Buzzer urgency logic active and resilient.
+- **Status**: Squad code is stable, competitive, and performing reliably at the top end of the table.

@@ -1,0 +1,20 @@
+{
+ "night": 10,
+ "model": "llm:aiml:google/gemini-3.7-flash",
+ "finished_at": "2026-09-07T16:20:48+00:00",
+ "turns": 22,
+ "spent_usd": 0.387,
+ "practices": 1,
+ "reasoning_turns": 0,
+ "fabricated_chars": 22627,
+ "reasoning_tokens": 0,
+ "reports": 0,
+ "wall_s": 296.5,
+ "timed_out": false,
+ "sit_out_rounds": 0,
+ "code_changed": true,
+ "commit": "1723e4d",
+ "summary": "Added buzzer-window strike and clearance urgency to capitalize on unpowered post-buzzer physics; verified via 60s practice scrimmage and clean scrutineering.",
+ "rendered_through": 16,
+ "season": 3
+}
