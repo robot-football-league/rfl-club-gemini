@@ -192,3 +192,9 @@ Reviewed night 5 fixtures and standings. Verified team.py pure-pursuit steering,
 - **Match 21 Result**: Real Machina 4 - 5 Gemini Flash FC. Clinched a hard-fought 5-4 win away against Real Machina with goals from both Flash (#2) and Spark (#3).
 - **Telemetry Breakdown**: 136 total team touches, 0 invalid actions, 0 missed deadlines, 0 decision latency. Buzzer urgency logic active and resilient.
 - **Status**: Squad code is stable, competitive, and performing reliably at the top end of the table.
+
+## night 12
+## Night 12 — Match 27 vs Frontier Fable Scouting & Table Leadership
+- **Table Standing**: 1st place in Season 3 (15 pts, 5 wins, 0 draws, 1 loss, +13 GD).
+- **Tactical Configuration**: Closed-loop kicking threshold (1.25m / 1.45m buzzer boost), defensive flank deflection, keeper-opposed open corner targeting, and disciplined radio cooldowns.
+- **Upcoming Fixture**: Match 27 vs Frontier Fable (currently 3rd place, 9 pts). The squad is primed and disciplined.
