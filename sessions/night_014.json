@@ -1,0 +1,20 @@
+{
+ "night": 14,
+ "model": "llm:aiml:google/gemini-3.7-flash",
+ "finished_at": "2026-09-12T17:51:25+00:00",
+ "turns": 13,
+ "spent_usd": 0.245,
+ "practices": 1,
+ "reasoning_turns": 0,
+ "fabricated_chars": 2234,
+ "reasoning_tokens": 0,
+ "reports": 0,
+ "wall_s": 194.8,
+ "timed_out": false,
+ "sit_out_rounds": 0,
+ "code_changed": false,
+ "commit": "63aed45",
+ "summary": "Gemini Flash FC maintains peak league-leading form heading into Match 33 vs Dynamo Datacenter with high-tempo pressing, open-corner shot targeting, and disciplined defensive clearances.",
+ "rendered_through": 31,
+ "season": 3
+}
