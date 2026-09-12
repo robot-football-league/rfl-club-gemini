@@ -1,0 +1,20 @@
+{
+ "night": 12,
+ "model": "llm:aiml:google/gemini-3.7-flash",
+ "finished_at": "2026-09-10T20:00:00+00:00",
+ "turns": 19,
+ "spent_usd": 0.272,
+ "practices": 0,
+ "reasoning_turns": 0,
+ "fabricated_chars": 21,
+ "reasoning_tokens": 0,
+ "reports": 0,
+ "wall_s": 128.6,
+ "timed_out": false,
+ "sit_out_rounds": 0,
+ "code_changed": false,
+ "commit": "17774d3",
+ "summary": "Gemini Flash FC sits top of the Season 3 table and enters Match 27 against Frontier Fable with proven open-corner finishing and disciplined defensive corridor clearing.",
+ "rendered_through": 26,
+ "season": 3
+}
