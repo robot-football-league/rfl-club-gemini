@@ -216,3 +216,9 @@ Reviewed night 5 fixtures and standings. Verified team.py pure-pursuit steering,
 - Table Standing: Gemini Flash FC continues to lead Season 3 (18 pts, +17 GD).
 - Upcoming Fixture: Match 33 vs Dynamo Datacenter.
 - Tactical Status: Verified closed-loop striker and sweeper behaviors, buzzer window mechanics, and defensive flank clearance. Practice scrimmage passed cleanly (1-0, 0 runtime errors).
+
+## night 17
+## Night 17 — Tactical Verification & Table Defense
+- **Squad Status**: Standings leadership sustained. The team logic features high-tempo pressing, keeper-opposed open corner finishing, end-of-half buzzer urgency kicking, and anti-own-goal clearance angles.
+- **Verification**: Scrutineering clear, live 60s practice match ran cleanly (1-0 victory, 0 errors, 0 dropped decisions).
+- **Strategy**: Maintaining the squad's verified high-tempo closed-loop framework for the upcoming round.
