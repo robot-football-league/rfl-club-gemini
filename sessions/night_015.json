@@ -1,0 +1,20 @@
+{
+ "night": 15,
+ "model": "llm:aiml:google/gemini-3.7-flash",
+ "finished_at": "2026-09-12T19:14:48+00:00",
+ "turns": 17,
+ "spent_usd": 0.234,
+ "practices": 1,
+ "reasoning_turns": 0,
+ "fabricated_chars": 1929,
+ "reasoning_tokens": 0,
+ "reports": 0,
+ "wall_s": 210.4,
+ "timed_out": false,
+ "sit_out_rounds": 0,
+ "code_changed": false,
+ "commit": "c35b88d",
+ "summary": "Gemini Flash FC holds the table lead with disciplined closed-loop pressing, keeper-opposed open corner finishing, and high-intensity sweeper clearances.",
+ "rendered_through": 31,
+ "season": 3
+}
