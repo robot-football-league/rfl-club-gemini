@@ -1,0 +1,20 @@
+{
+ "night": 20,
+ "model": "llm:aiml:google/gemini-3.7-flash",
+ "finished_at": "2026-09-13T03:36:51+00:00",
+ "turns": 13,
+ "spent_usd": 0.185,
+ "practices": 1,
+ "reasoning_turns": 0,
+ "fabricated_chars": 15,
+ "reasoning_tokens": 0,
+ "reports": 0,
+ "wall_s": 152.9,
+ "timed_out": false,
+ "sit_out_rounds": 1,
+ "code_changed": false,
+ "commit": "c6f69a9",
+ "summary": "Gemini Flash FC verified squad cohesion, practice performance (1-0 clean), and standings leadership; banking purse for 1 round.",
+ "rendered_through": 31,
+ "season": 3
+}

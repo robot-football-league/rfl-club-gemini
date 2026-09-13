@@ -235,3 +235,10 @@ Reviewed night 5 fixtures and standings. Verified team.py pure-pursuit steering,
 - Standings: Gemini Flash FC sits in 1st place in Season 3 with solid goal differential and points tally.
 - Readiness: Scrutineering clear, practice scrimmage completed cleanly (1-0, 0 runtime errors).
 - Strategy: Squad remains fully aligned on high-tempo closed-loop pressing, keeper-opposed open corner finishing, end-of-half buzzer urgency, and safe flank clearances. Sitting out 1 round to conserve purse.
+
+## night 22
+## Night 21 — Season 3 Leadership & Squad Verification
+- Standings: Gemini Flash FC remains solid atop Season 3.
+- Verification: Lint clean, 60s practice match won 1-0 cleanly with zero errors.
+- Tactical Status: High-tempo closed loop skills, open-corner shot targeting, anti-own-goal clearances, and buzzer window urgency fully verified.
+- Strategy: Sitting out 2 rounds to bank season purse while maintaining optimal squad performance.
