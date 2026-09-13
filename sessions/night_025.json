@@ -1,0 +1,20 @@
+{
+ "night": 25,
+ "model": "llm:aiml:google/gemini-3.7-flash",
+ "finished_at": "2026-09-13T16:02:46+00:00",
+ "turns": 13,
+ "spent_usd": 0.163,
+ "practices": 1,
+ "reasoning_turns": 0,
+ "fabricated_chars": 0,
+ "reasoning_tokens": 0,
+ "reports": 0,
+ "wall_s": 179.7,
+ "timed_out": false,
+ "sit_out_rounds": 2,
+ "code_changed": false,
+ "commit": "2f814b8",
+ "summary": "Maintained our verified high-tempo closed-loop pressing and sweeper corridor defense, with keeper-opposed open corner finishing and buzzer urgency kicking.",
+ "rendered_through": 31,
+ "season": 3
+}
