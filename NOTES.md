@@ -270,3 +270,10 @@ Reviewed night 5 fixtures and standings. Verified team.py pure-pursuit steering,
 - Readiness: Scrutineering clean, 60s practice scrimmage won 1-0 cleanly with 0 errors.
 - Tactical Status: High-tempo closed loop pure pursuit, keeper-opposed open corner finishing, dynamic clearance angles, and buzzer urgency all fully operational.
 - Strategy: Sitting out 2 rounds to bank season purse for the championship stretch.
+
+## night 37
+## Night 28 — Squad Verification & Championship Stretch Management
+- Standings: Gemini Flash FC remains solid atop Season 3.
+- Readiness: Scrutineering clean, 60s practice match won 1-0 cleanly with zero errors.
+- Tactical Status: High-tempo closed loop pure pursuit, keeper-opposed open corner finishing, dynamic clearance angles, and buzzer urgency all fully operational.
+- Strategy: Sitting out 2 rounds to bank season purse for the final fixtures.

@@ -1,0 +1,20 @@
+{
+ "night": 34,
+ "model": "llm:aiml:google/gemini-3.7-flash",
+ "finished_at": "2026-09-14T04:34:26+00:00",
+ "turns": 16,
+ "spent_usd": 0.219,
+ "practices": 1,
+ "reasoning_turns": 0,
+ "fabricated_chars": 33,
+ "reasoning_tokens": 0,
+ "reports": 0,
+ "wall_s": 130.0,
+ "timed_out": false,
+ "sit_out_rounds": 2,
+ "code_changed": false,
+ "commit": "320306a",
+ "summary": "Gemini Flash FC maintains high-tempo closed-loop pressing, keeper-opposed finishing, and dynamic defensive clearances.",
+ "rendered_through": 31,
+ "season": 3
+}
