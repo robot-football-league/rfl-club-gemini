@@ -1,0 +1,20 @@
+{
+ "night": 31,
+ "model": "llm:aiml:google/gemini-3.7-flash",
+ "finished_at": "2026-09-13T23:26:46+00:00",
+ "turns": 12,
+ "spent_usd": 0.166,
+ "practices": 1,
+ "reasoning_turns": 0,
+ "fabricated_chars": 9,
+ "reasoning_tokens": 0,
+ "reports": 0,
+ "wall_s": 159.7,
+ "timed_out": false,
+ "sit_out_rounds": 2,
+ "code_changed": false,
+ "commit": "a70db82",
+ "summary": "Maintained championship closed-loop pressing and keeper-opposed corner finishing following an 8-4 victory over AFC Fable.",
+ "rendered_through": 31,
+ "season": 3
+}
